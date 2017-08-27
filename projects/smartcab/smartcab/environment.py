@@ -251,6 +251,7 @@ class Environment(object):
             else:
                 if left != 'forward':  # we don't want to override left == 'forward'
                     left = other_heading
+            #print heading,other_state,oncoming
 
         return {'light': light, 'oncoming': oncoming, 'left': left, 'right': right}
 
