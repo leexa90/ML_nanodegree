@@ -40,12 +40,12 @@ class LearningAgent(Agent):
         # Update epsilon using a decay function of your choice
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
-        self.epsilon = self.epsilon_o* 2.77**(-self.alpha*self.counter/300)
+        self.epsilon = self.epsilon_o* 2.77**(-self.alpha*self.counter/50)
         #self.epsilon = self.epsilon- 0.05
         self.counter += 1
         #print 'ZZZZZZZZZZZZZZZZZZZ',self.epsilon
         if testing==True:
-            self.epilson = 0
+            self.epsilon = 0
             self.alpha = 0
         return None
 
@@ -99,10 +99,11 @@ class LearningAgent(Agent):
         # When learning, check if the 'state' is not in the Q-table
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
-        if state not in self.Q.keys():
-            self.Q[state]= {}
-            for action in [None,'forward','left','right']:
-                self.Q[state][action] = 0.0
+        if self.learning is True:
+            if state not in self.Q.keys():
+                self.Q[state]= {}
+                for action in [None,'forward','left','right']:
+                    self.Q[state][action] = 0.0
 
         return 
     
@@ -126,10 +127,12 @@ class LearningAgent(Agent):
         # Otherwise, choose an action with the highest Q-value for the current state
         # Be sure that when choosing an action with highest Q-value that you randomly select between actions that "tie".
         if self.learning is True:
-            maxQ = self.get_maxQ(state)
-            #print state,maxQ
-            actions = [ x for x in  self.Q[state]  if   self.Q[state][x] == maxQ]
-            #print actions
+            if random.random() <  self.epsilon:
+                actions = [None,'forward','left','right']
+                print 'XXX',random.random() , self.epsilon
+            else:
+                maxQ = self.get_maxQ(state)
+                actions = [ x for x in  self.Q[state]  if   self.Q[state][x] == maxQ]
             action = actions[random.randint(0,len(actions)-1)]
             
         return action
@@ -185,7 +188,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent,learning=True,alpha = 0.9)
+    agent = env.create_agent(LearningAgent,learning=True,alpha = 0.5)
     
     ##############
     # Follow the driving agent
@@ -207,7 +210,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10,tolerance = 0.03)
+    sim.run(n_test=10,tolerance = 0.01)
 
 
 if __name__ == '__main__':
