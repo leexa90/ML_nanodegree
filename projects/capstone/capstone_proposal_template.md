@@ -50,3 +50,30 @@ In this final section, summarize a theoretical workflow for approaching a soluti
 - Would the intended audience of your project be able to understand your proposal?
 - Have you properly proofread your proposal to assure there are minimal grammatical and spelling mistakes?
 - Are all the resources used for this project correctly cited and referenced?
+
+
+Capstone Proposal Overview
+
+Please note that once your Capstone Proposal has been submitted and you have passed the evaluation, you have to submit your Capstone project using the same proposal that you submitted. We do not allow the Capstone Proposal and the Capstone project to differ in terms of dataset and approach.
+
+In this capstone project proposal, prior to completing the following Capstone Project, you you will leverage what you’ve learned throughout the Nanodegree program to author a proposal for solving a problem of your choice by applying machine learning algorithms and techniques. A project proposal encompasses seven key points:
+
+    The project's domain background — the field of research where the project is derived;
+    A problem statement — a problem being investigated for which a solution will be defined;
+    The datasets and inputs — data or inputs being used for the problem;
+    A solution statement — a the solution proposed for the problem given;
+    A benchmark model — some simple or historical model or result to compare the defined solution to;
+    A set of evaluation metrics — functional representations for how the solution can be measured;
+    An outline of the project design — how the solution will be developed and results obtained.
+
+Capstone Proposal Highlights
+
+The capstone project proposal is designed to introduce you to writing proposals for major projects. Typically, before you begin working on a solution to a problem, a proposal is written to your peers, advisor, manager, etc., to outline the details of the problem, your research, and your approach to a solution.
+
+Things you will learn by completing this project proposal:
+
+    How to research a real-world problem of interest.
+    How to author a technical proposal document.
+    How to organize a proposed workflow for designing a solution.
+
+
